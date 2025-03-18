@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/contactus.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .Contactuss {
+            margin-top: 80px;
+            background-image: url('img/img1.jpg');
+        }
+
+        .maindiv {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .section1 {
+            /*it include box1 and box2*/
+            width: 40%;
+        }
+
+        .section2 {
+            /*it include Form part*/
+            flex: 1;
+            width: 60%;
+
+        }
+
+        button {
+            width: 70px;
+            margin-left: 40%;
+        }
+
+        .column {
+            /*it include A div and B div*/
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        textarea {
+            margin: 5px 0px;
+            width: 90%;
+            height: 40%;
+        }
+       
+       
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <img class="logo" src="../img/../img/logo.png" alt="" style="width: 50px; height: 50px; border-radius: 50%;">
+        <nav>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="blogpage.html">Blog</a></li>
+                <li><a href="Research.html">Research</a></li>
+            </ul>
+        </nav>
+        <div class="">
+            <a href="login.html"><i class="fa-regular fa-user"></i></a>
+            <a href="addtocard.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+
+
+    <h1 class="Contactuss" style="text-align: center;">Contact us</h1>
+    <!-- main div -->
+    <div class="maindiv">
+        <!-- section 1 div -->
+        <div class="section1">
+            <div class="box1">
+                <h3>Address</h3>
+                <p>Pokhara</p>
+                <h3>Follow Us On</h3>
+                <div class="logos">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fa-brands fa-github"></i>
+                </div>
+
+            </div>
+            <div class="box2">
+
+                <h2><i class="fa-solid fa-phone"></i></h2>
+                <h3> Customer Care Phone Number</h3>
+                <p>+977 9810000000</p>
+                <p>(From 8 am to 5 pm)</p>
+            </div>
+        </div>
+        <!-- section 2 div  -->
+
+        <div class="section2">
+            <form onsubmit="validation(event)">
+                <div class="column">
+                    <div class="A" style="width: 50%;"> 
+                        <label for="name">Name</label>
+                        <br>
+                        <input class="Formclass" type="text" id="name" name="Name" placeholder="Name" required>
+                        <br>
+                        <label for="mobileNo">Mobile No.</label>
+                        <br>
+                        <input class="Formclass" type="tel" id="mobileNo" name="MobileNo" placeholder="Mobile No." required>
+                    </div>
+                    <div class="B" style="width: 50%;">
+                        <label for="email">Email ID</label>
+                        <br>
+                        <input class="Formclass" type="email" id="email" name="EmailID" placeholder="Email ID" required>
+                        <br>
+                        <label for="telephone">Telephone No.</label>
+                        <br>
+                        <input class="Formclass" type="tel" id="telephone" name="TelephoneNo" placeholder="Telephone No.">
+                    </div>
+                </div>
+                <br>
+                <label for="comments">Comments</label> 
+                <textarea id="comments" name="Comments" placeholder="Comment here"></textarea>
+                <br>
+                <input type="submit" name="Submit"
+                    style="margin: 2% 35%; width: 30%; background-color: rgb(0, 0, 0); color: white;">
+            </form>
+        </div>
+    </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+          <!-- Footer Logo -->
+          
+      
+          <!-- Footer Links -->
+          <div class="footer-links">
+            <a href="#" class="footer-link">
+              <i class="fas fa-home"></i> Home
+            </a>
+            <a href="#" class="footer-link">
+              <i class="fas fa-info-circle"></i> About
+            </a>
+            <a href="#" class="footer-link">
+              <i class="fas fa-envelope"></i> Contact
+            </a>
+            <a href="#" class="footer-link">
+              <i class="fas fa-phone"></i> Support
+            </a>
+          </div>
+      
+          <!-- Footer Social Icons -->
+          <div class="footer-social">
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 Your Mero time. All rights reserved.</p>
+        </div>
+      </footer>
+      
+
+</body>
+
+
+<script>
+
+function validation(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get input values
+    var name = document.getElementById("name").value.trim();
+    var mobileNo = document.getElementById("mobileNo").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var telephone = document.getElementById("telephone").value.trim();
+
+    // Validate inputs
+    if (name === "" || mobileNo === "" || email === "" || telephone === "" || comments === "") {
+        alert("Please fill all the fields");
+        return false;
+    } 
+    else if (mobileNo.length !== 10 || isNaN(mobileNo)) {
+        alert("Mobile number should be exactly 10 digits and numeric");
+        return false;
+    } 
+    else {
+        alert("Your form is submitted successfully!");
+        window.location.href = "login.html";
+        return true;
+    }
+}
+
+
+
+    function handleFormSubmit(event) {
+        event.preventDefault(); // Prevent default form submission
+        // Show confirmation message
+        alert("Your form is submitted successfully!");
+        // Redirect to the login page
+        window.location.href = "../html/index.html";
+    }
+</script>
+
+
+</html>

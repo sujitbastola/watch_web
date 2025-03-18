@@ -1,0 +1,26 @@
+.section-impact img {
+    width: 450px;
+    height: 250px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.section-impact p {
+    width: 100%;
+    padding: 0px;
+    padding-top: 20px;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.impact-box {
+    padding: 20px;
+    background-color: #a9c8da;
+    border-left: 10px solid #000000;
+    
+}
+

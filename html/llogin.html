@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="https://kit.fontawesome.com/8b0ab91d70.js" crossorigin="anonymous"></script>
+<script>
+         document.addEventListener("DOMContentLoaded", function () {
+    let userEmail = localStorage.getItem("userEmail");
+    if (!userEmail) {
+        window.location.href = "login.html";
+    } else {
+        let userEmailElement = document.getElementById("user-email");
+        if (userEmailElement) {
+            userEmailElement.textContent = userEmail;
+        }
+    }
+});
+function logoutUser() {
+    localStorage.clear(); // Clears all localStorage data
+    window.location.href = "login.html";
+}
+document.addEventListener("DOMContentLoaded", function () {
+    let userEmail = localStorage.getItem("userEmail");
+    if (userEmail && window.location.pathname.includes("login.html")) {
+        window.location.href = "llogin.html"; // Redirect to profile
+    }
+});
+</script>
+</head>
+<body>
+    <header class="navbar">
+        <img class="logo" src="../img/../img/logo.png" alt="" style="width: 50px; height: 50px; border-radius: 50%;">
+        <nav>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="blogpage.html">Blog</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="AboutUs.html">Research</a></li>
+            </ul>
+        </nav>
+        <div class="">
+            <a href="login.html"><i class="fa-regular fa-user"></i></a>
+            <a href="addtocard.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+
+    <h1 class="headingoflogin" style="text-align: center;">Profile Page</h1>
+    <div class="login">
+        <img class="img" src="../img/img1.jpg" alt="image of watch">
+        <div class="box2" style="text-align: center; padding: 20px;">
+            <h2>Welcome, <span id="user-email"></span></h2>
+            <button onclick="logoutUser()" style="width:30%; margin: 10px 35%; background-color: black; color: white;">Logout</button>
+        </div>
+    </div>
+
+    <footer class="footer" style="margin-top: 20px;">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html" class="footer-link"><i class="fas fa-home"></i> Home</a>
+                <a href="AboutUs.html" class="footer-link"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contactus.html" class="footer-link"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="#" class="footer-link"><i class="fas fa-phone"></i> +977-9812345678</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Your Mero Time. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

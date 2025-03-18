@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="https://kit.fontawesome.com/8b0ab91d70.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            text-align: center;
+        }
+        .cart-container {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item img {
+            width: 50px;
+            height: auto;
+            border-radius: 5px;
+        }
+        .cart-item p {
+            margin: 0;
+            flex: 1;
+            padding-left: 10px;
+        }
+        .remove-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .remove-btn:hover {
+            background-color: darkred;
+        }
+        .total-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .checkout-btn {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+       <!-- navbar  -->
+       <header class="navbar">
+        <img class="logo" src="../img/../img/logo.png" alt="" style="width: 50px; height: 50px; border-radius: 50%;">
+        <nav>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="blogpage.html">Blog</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="AboutUs.html">Research</a></li>
+            </ul>
+        </nav>
+        <div class="">
+            <a href="login.html"><i class="fa-regular fa-user"></i></a>
+            <a href="addtocard.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+
+    <h1 style="margin-top: 80px ;">Your Shopping Cart</h1>
+    <div class="cart-container" style=" margin-bottom: 19px;">
+        <div id="cart-items"></div>
+        <p class="total-price">Total: Rs <span id="total-price">0</span></p>
+        <button class="checkout-btn">Checkout</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartItemsContainer = document.getElementById("cart-items");
+            const totalPriceElement = document.getElementById("total-price");
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            function updateCart() {
+                cartItemsContainer.innerHTML = "";
+                let totalPrice = 0;
+
+                cart.forEach((item, index) => {
+                    const itemDiv = document.createElement("div");
+                    itemDiv.classList.add("cart-item");
+
+                    const img = document.createElement("img");
+                    img.src = item.image;
+                    img.alt = item.name;
+
+                    const details = document.createElement("p");
+                    details.textContent = `${item.name} - Rs ${item.price}`;
+
+                    const removeBtn = document.createElement("button");
+                    removeBtn.classList.add("remove-btn");
+                    removeBtn.textContent = "Remove";
+                    removeBtn.addEventListener("click", () => {
+                        cart.splice(index, 1);
+                        localStorage.setItem("cart", JSON.stringify(cart));
+                        updateCart();
+                    });
+
+                    itemDiv.appendChild(img);
+                    itemDiv.appendChild(details);
+                    itemDiv.appendChild(removeBtn);
+                    cartItemsContainer.appendChild(itemDiv);
+
+                    totalPrice += parseFloat(item.price.replace("Rs ", ""));
+                });
+
+                totalPriceElement.textContent = totalPrice.toFixed(2);
+            }
+
+            updateCart();
+        });
+    </script>
+          <footer class="footer">
+            <div class="footer-content">
+              <!-- Footer Logo -->
+              
+          
+              <!-- Footer Links -->
+              <div class="footer-links">
+                <a href="index.html" class="footer-link">
+                  <i class="fas fa-home"></i> Home
+                </a>
+                <a href="AboutUs.html" class="footer-link">
+                  <i class="fas fa-info-circle"></i> About
+                </a>
+                <a href="contactus.html" class="footer-link">
+                  <i class="fas fa-envelope"></i> Contact
+                </a>
+                <a href="#" class="footer-link">
+                  <i class="fas fa-phone"></i>+977-9812345678
+                </a>
+              </div>
+          
+              <!-- Footer Social Icons -->
+              <div class="footer-social">
+                <a href="#" class="social-icon">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+              <p>&copy; 2025 Your Mero time. All rights reserved.</p>
+            </div>
+          </footer>
+          
+</body>
+</html>

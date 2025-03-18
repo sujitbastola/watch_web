@@ -1,0 +1,439 @@
+/* Global Styles */
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+/* Navbar Styles */
+.navbar {
+    margin-top: 0px; /* optional, depending on your design */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    position: fixed; /* makes it fixed */
+    top: 0; /* ensure it's at the top */
+    left: 0; /* ensure it spans the full width */
+    width: 100%; /* make it take up the full width of the page */
+    z-index: 1000; /* ensures the navbar is on top of other elements */
+    opacity: 0.8;
+}
+
+.logo {
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+.navbar div a {
+    color: white;
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.navbar div a:hover {
+    color: #4CAF50;
+}
+
+/* For mobile and tablet screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center; /* Center content on smaller screens */
+        padding: 10px; /* Reduce padding for small screens */
+    }
+
+    .logo {
+        display: none; /* Hide logo on smaller screens */
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the list items */
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .navbar div {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-evenly; /* Spread icons evenly */
+        width: 100%;
+        padding: 0 20px; /* Add some padding to prevent icons from touching edges */
+    }
+}
+
+.intro-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 1rem;
+    padding: 2px;
+  }
+  
+  /* Left Section: Description and Buttons */
+  .intro-left-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+  }
+  
+  
+ 
+  
+  .intro-introbtn {
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .intro-introbtn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Right Section: Video */
+  .intro-right-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .intro-video {
+    width: 120%;
+    height: 80%;
+    object-fit: cover;
+    max-width: 600px; /* Restrict the video width */
+    border-radius: 8px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .intro-container {
+      grid-template-columns: 1fr; /* Stack the sections on small screens */
+      gap: 1rem;
+    }
+  
+    .intro-video {
+      max-width: 100%; /* Ensure the video takes up full width on small screens */
+    }
+  
+    .intro-left-section {
+      align-items: center; /* Center the content on smaller screens */
+      text-align: center;
+    }
+  }
+  
+
+/* card */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .card-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .price {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .discount-price { 
+    font-weight: bold;
+    color: #0a0a0a !important;
+    
+  }
+  
+  .recent-price {
+    margin-left: 0.5rem;
+    text-decoration: line-through;
+    color: #eb3e3e !important;
+  }
+  
+  .rating {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+    flex-direction: row;
+
+  }
+  
+  .rating .star {
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .rating .star:hover,
+  .rating .star:hover ~ .star {
+    color: #f70e06;
+  }
+  
+  .card-description {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0.5rem 0;
+    max-height: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: max-height 0.3s ease;
+  }
+  
+  .card-description.expanded {
+    max-height: 10rem;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+   
+  }
+  
+  .card-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .morebtn {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid #007bff;
+    color: #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .morebtn:hover {
+    background-color: #007bff;
+    color: white;
+    
+  }
+  
+  .cart-icon {
+    font-size: 1.2rem;
+  }
+  
+  /* Modal Styling */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+ 
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 90px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 60px 0 60px 0;
+
+  }
+  
+  .close-btn {
+    color: #aaa;
+    font-size: 1.5rem;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+    
+  }
+  
+  .close-btn:hover,
+  .close-btn:focus {
+    color: black;
+    text-decoration: none;
+   
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      max-width: 100%;
+    }
+  }
+  
+
+
+
+  .footer {
+    background-color: #222;
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+/* Footer Logo */
+.footer-logo .logo {
+    width: 100px;
+    height: auto;
+  }
+  
+  /* Footer Links */
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+  }
+  
+  .footer-link i {
+    font-size: 1.2rem;
+  }
+  
+  .footer-link:hover {
+    color: #007bff;
+  }
+  
+  /* Footer Social Icons */
+  .footer-social {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-icon {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+  }
+  
+  .social-icon:hover {
+    color: #007bff;
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .footer-links {
+      justify-content: center;
+    }
+  
+    .footer-social {
+      justify-content: center;
+    }
+  }
+  

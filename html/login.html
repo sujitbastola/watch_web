@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="https://kit.fontawesome.com/8b0ab91d70.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <img class="logo" src="../img/../img/logo.png" alt="" style="width: 50px; height: 50px; border-radius: 50%;">
+        <nav>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="blogpage.html">Blog</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="AboutUs.html">AboutUs</a></li>
+            </ul>
+        </nav>
+        <div class="">
+            <a href="login.html"><i class="fa-regular fa-user"></i></a>
+            <a href="addtocard.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+    <h1 style="text-align: center; margin-top: 80px;">Login</h1>
+    <div class="login">
+        <img class="img" src="../img/img1.jpg" alt="Profile Image">
+        <div class="box2">
+            <form id="loginForm">
+                <h3>LOG IN</h3>
+                <p>Don't have an account yet? <a href="register.html">Register</a></p>
+                <label for="email">Email</label><br>  
+                <input type="text" id="email" name="Email"><br>
+                <label for="password">Password</label><br>
+                <input type="password" id="password" name="Password"><br>
+                <button type="submit" style="width:30%; margin: 10px 35%; background-color: black; color: white;">LOG IN</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            let email = document.getElementById("email").value;
+            let loginTime = new Date().toLocaleString();
+            
+            if (email) {
+                localStorage.setItem("username", email);
+                localStorage.setItem("loginTime", loginTime);
+                window.location.href = "profile.html"; // Redirect to profile
+            } else {
+                alert("Please enter your email.");
+            }
+        });
+    </script>
+
+</body>
+</html>

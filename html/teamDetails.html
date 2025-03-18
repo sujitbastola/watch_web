@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Member Details</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="https://kit.fontawesome.com/8b0ab91d70.js" crossorigin="anonymous"></script>
+    <style>
+        /* Simple CSS for responsive layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .team-details-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .team-details-container img {
+            width: 100%;
+            max-width: 550px;
+            height: 400px;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .team-details-container div {
+            max-width: 600px;
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .team-details-container h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .team-details-container p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            margin-right: 10px;
+            color: #555;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #007BFF;
+        }
+
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .team-details-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-details-container img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <img class="logo" src="../img/../img/logo.png" alt="" style="width: 50px; height: 50px; border-radius: 50%;">
+        <nav>
+            <ul class="links">
+
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="products.html">Product Page</a></li>
+                <li><a href="blogpage.html">Blog</a></li>
+                <li><a href="Research.html">Research</a></li>
+            </ul>
+        </nav>
+        <div class="">
+            <a href="login.html"><i class="fa-regular fa-user"></i></a>
+            <a href="addtocard.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+    <h1 style="margin-top: 80px; text-align: center;">Teammeats Member</h1>
+    <div class="team-details-container ">
+        <img id="member-image" alt="Team Member">
+        <div>
+            <b>
+            <h1 id="member-name"></h1>
+            <p id="member-role"></p>
+            <p id="member-address"></p>
+            <p id="member-phone"></p>
+            <p id="member-email"></p>
+            <p id="member-skills"></p></b>
+
+            <!-- New section for the detailed description -->
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, nihil possimus quis, aut voluptatum
+                laboriosam praesentium fuga explicabo non eos saepe mollitia, fugiat quos cupiditate architecto laborum
+                iste ad! Magni dolorum animi dolore aliquid sit perferendis labore facilis, ullam nam quos! Quod
+                laudantium modi quasi hic architecto placeat molestias quia!</p>
+            <p id="member-bio"></p>
+
+            <div class="social-links">
+                <a id="linkedin" href="#" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a id="github" href="#" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a id="twitter" href="#" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a id="facebook" href="#" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const memberData = JSON.parse(localStorage.getItem("selectedMember"));
+
+            if (memberData) {
+                document.getElementById("member-name").textContent = memberData.name;
+                document.getElementById("member-role").textContent = ` ${memberData.role}`;
+                document.getElementById("member-address").textContent = ` ${memberData.address}`;
+                document.getElementById("member-phone").textContent = `${memberData.phone}`;
+                document.getElementById("member-email").textContent = ` ${memberData.email}`;
+                document.getElementById("member-skills").textContent = `Skills: ${memberData.skills || 'Not Available'}`;
+                document.getElementById("member-image").src = memberData.image;
+
+                // Set Social Media links
+                document.getElementById("linkedin").href = memberData.linkedin || "#";
+                document.getElementById("github").href = memberData.github || "#";
+                document.getElementById("twitter").href = memberData.twitter || "#";
+                document.getElementById("facebook").href = memberData.facebook || "#";
+            } else {
+                document.body.innerHTML = "<h2>No data available. Please go back and select a member.</h2>";
+            }
+        });
+    </script>
+              <!-- Footer Social Icons -->
+              <footer class="footer">
+                <div class="footer-content">
+                  <!-- Footer Logo -->
+                  
+              
+                  <!-- Footer Links -->
+                  <div class="footer-links">
+                    <a href="index.html" class="footer-link">
+                      <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="AboutUs.html" class="footer-link">
+                      <i class="fas fa-info-circle"></i> About
+                    </a>
+                    <a href="contactus.html" class="footer-link">
+                      <i class="fas fa-envelope"></i> Contact
+                    </a>
+                    <a href="#" class="footer-link">
+                      <i class="fas fa-phone"></i>+977-9812345678
+                    </a>
+                  </div>
+              
+                  <!-- Footer Social Icons -->
+                  <div class="footer-social">
+                    <a href="#" class="social-icon">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </div>
+                </div>
+              
+                <!-- Footer Bottom -->
+                <div class="footer-bottom">
+                  <p>&copy; 2025 Your Mero time. All rights reserved.</p>
+                </div>
+              </footer>
+              
+</body>
+
+</html>
